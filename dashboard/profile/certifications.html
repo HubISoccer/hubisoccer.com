@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diplômes & Certifications | HubISoccer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/style.css"> 
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/certifications.css">
+</head>
+<body>
+
+    <nav>
+        <img src="../../assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav" onclick="window.location.href='../../index.html'">
+        <div class="nav-right">
+            <select class="lang-picker" id="langSelect">
+                <option value="fr">🇫🇷 Français</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="yo">🇳🇬 Yoruba</option>
+                <option value="fon">🇧🇯 Fon</option>
+                <option value="mina">🇹🇬 Mina</option>
+                <option value="lin">🇨🇬 Lingala</option>
+                <option value="wol">🇸🇳 Wolof</option>
+                <option value="ha">🇳🇬 Hausa</option>
+                <option value="sw">🇰🇪 Swahili</option>
+                <option value="diou">🇨🇮 Dioula</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="pt">🇵🇹 Português</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="ar">🇸🇦 العربية</option>
+                <option value="zh">🇨🇳 中文</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="ru">🇷🇺 Русский</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="hi">🇮🇳 हिन्दी</option>
+                <option value="ko">🇰🇷 한국어</option>
+                <option value="nl">🇳🇱 Nederlands</option>
+                <option value="pl">🇵🇱 Polski</option>
+                <option value="vi">🇻🇳 Tiếng Việt</option>
+            </select>
+            <button class="menu-toggle" id="dashboardMenuTrigger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="sidebar-menu" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu Joueur</h3>
+            <div class="close-btn" id="closeSidebar">✕</div>
+        </div>
+        <div class="sidebar-content">
+            <a href="../main.html">🏠 Mon Dashboard</a>
+            <a href="../scouting/verification.html">🛡️ Vérification du Statut</a>
+            <a href="/community/feed.html">👥 Ma Communauté (Feed)</a>
+            <a href="edit-cv.html">📝 Modifier mon CV Pro</a>
+            <a href="certifications.html" class="active">🎓 Diplômes & Certifs</a>
+            <a href="../scouting/tournaments.html">🏆 Suivi Tournoi (Live)</a>
+            <a href="../scouting/transfers.html">🔄 Historique Transferts</a>
+            <hr class="sidebar-divider">
+            <a href="../media/videos.html">🎥 Mes Vidéos</a>
+            <a href="../finance/revenue.html">💰 Mes Revenus</a>
+            <a href="../community/messages.html">📩 Messages</a>
+            <a href="../support.html">❓ Support</a>
+            <a href="/index.html" class="logout-link">🚪 Déconnexion</a>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        
+        <div class="section-header">
+            <h1>🎓 Diplômes & Certifications</h1>
+            <p><strong>Ozawa</strong>, gérez vos preuves de réussite scolaire et sportive ici.</p>
+        </div>
+
+        <div class="cert-layout">
+            
+            <div class="cert-list-section">
+                <div class="cert-card">
+                    <div class="cert-info">
+                        <span class="cert-icon">📜</span>
+                        <div class="cert-details">
+                            <h4>BEPC - Enseignement Général</h4>
+                            <p>Délivré par : Ministère de l'Éducation | 2024</p>
+                        </div>
+                    </div>
+                    <span class="status-badge verified">VÉRIFIÉ ✓</span>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-info">
+                        <span class="cert-icon">⚽</span>
+                        <div class="cert-details">
+                            <h4>Certificat de Formation - Académie Élite</h4>
+                            <p>Délivré par : Centre de Formation Cotonou | 2025</p>
+                        </div>
+                    </div>
+                    <span class="status-badge pending">EN EXAMEN...</span>
+                </div>
+            </div>
+
+            <div class="upload-section">
+                <div class="upload-box">
+                    <h3>Ajouter un nouveau document</h3>
+                    <form id="certForm">
+                        <div class="form-group">
+                            <label>Intitulé du Diplôme / Certificat</label>
+                            <input type="text" placeholder="Ex: BAC, Licence UEFA, Attestation..." id="title">
+                        </div>
+                        <div class="form-grid-inner">
+                            <div class="form-group">
+                                <label>Année d'obtention</label>
+                                <input type="number" placeholder="2026" id="year">
+                            </div>
+                            <div class="form-group">
+                                <label>Type de document</label>
+                                <select id="type">
+                                    <option>Scolaire</option>
+                                    <option>Sportif</option>
+                                    <option>Autre</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Fichier (PDF ou Image)</label>
+                            <div class="file-drop-area">
+                                <input type="file" id="certFile">
+                                <p>Cliquez ou glissez votre document ici</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-gold-full" onclick="addCert()">Soumettre pour vérification</button>
+                    </form>
+                </div>
+            </div>
+
+        </div> </div>
+
+    <footer>
+        <div class="compliance-badges">
+            <div class="badge-item">Conformité APDP Bénin</div>
+            <div class="badge-item">Règlementation FIFA</div>
+            <div class="badge-item">Double Projet Sport-Études</div>
+        </div>
+        <div class="contact-box">
+            <a href="tel:+2290197208188" class="contact-item">📞 +229 01 97 20 81 88</a>
+            <a href="mailto:contact@hubisoccer.com" class="contact-item">📧 hubisoccer@gmail.com</a>
+        </div>
+        <div class="legal">
+            <p><strong>HubISoccer - The Hub of Inspiration of Soccer</strong></p>
+            <p>RCCM : RB/ABC/24 A 111814 | IFU : 0201910800236</p>
+            <p>&copy; 2026 HubISoccer - Ozawa. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/dashboard.js"></script>
+    <script src="../../assets/js/certifications.js"></script>
+</body>
+</html>

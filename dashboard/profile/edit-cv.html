@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite CV Builder | HubISoccer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="edit-cv.css">
+</head>
+<body>
+
+    <nav>
+        <img src="../../assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav" onclick="window.location.href='../../index.html'">
+        <div class="nav-right">
+            <select class="lang-picker" id="langSelect">
+                <option value="fr">🇫🇷 Français</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="yo">🇳🇬 Yoruba</option>
+                <option value="fon">🇧🇯 Fon</option>
+                <option value="mina">🇹🇬 Mina</option>
+                <option value="lin">🇨🇬 Lingala</option>
+                <option value="wol">🇸🇳 Wolof</option>
+                <option value="ha">🇳🇬 Hausa</option>
+                <option value="sw">🇰🇪 Swahili</option>
+                <option value="diou">🇨🇮 Dioula</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="pt">🇵🇹 Português</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="ar">🇸🇦 العربية</option>
+                <option value="zh">🇨🇳 中文</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="ru">🇷🇺 Русский</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="hi">🇮🇳 हिन्दी</option>
+                <option value="ko">🇰🇷 한국어</option>
+                <option value="nl">🇳🇱 Nederlands</option>
+                <option value="pl">🇵🇱 Polski</option>
+                <option value="vi">🇻🇳 Tiếng Việt</option>
+            </select>
+            <button class="menu-toggle" id="dashboardMenuTrigger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="sidebar-menu" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu Joueur</h3>
+            <div class="close-btn" id="closeSidebar">✕</div>
+        </div>
+        <div class="sidebar-content">
+            <a href="../main.html">🏠 Mon Dashboard</a>
+            <a href="../scouting/verification.html">🛡️ Vérification du Statut</a>
+            <a href="../../community/feed.html">👥 Ma Communauté (Feed)</a>
+            <a href="edit-cv.html" class="active">📝 Modifier mon CV Pro</a>
+            <a href="certifications.html">🎓 Diplômes & Certifs</a>
+            <a href="../scouting/tournaments.html">🏆 Suivi Tournoi (Live)</a>
+            <a href="../scouting/transfers.html">🔄 Historique Transferts</a>
+            <hr class="sidebar-divider">
+            <a href="../media/videos.html">🎥 Mes Vidéos</a>
+            <a href="../finance/revenue.html">💰 Mes Revenus</a>
+            <a href="../../community/messages.html">📩 Messages</a>
+            <a href="../support.html">❓ Support</a>
+            <a href="/index.html" class="logout-link">🚪 Déconnexion</a>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="cv-builder-header">
+            <div class="title-area">
+                <h1>Elite CV <span class="gold-text">Sourcing</span></h1>
+                <p>Gestionnaire de profil Ozawa pour le recrutement européen.</p>
+            </div>
+            <div class="actions-area">
+                <button class="btn-save" onclick="saveData()">💾 SAUVEGARDER</button>
+                <button class="btn-export" onclick="exportToPDF()">📥 EXPORT PDF HD</button>
+            </div>
+        </div>
+
+        <div class="builder-grid">
+            <div class="editor-panel">
+                
+                <button class="btn-preview-trigger" onclick="openPreview()">👁️ VOIR MON CV ELITE</button>
+
+                <section class="glass-card">
+                    <div class="section-header"><h3>📝 Caractéristiques</h3></div>
+                    <div class="input-group">
+                        <label>Poste Principal</label>
+                        <select id="in-position" oninput="syncCV()">
+                            <option value="Attaquant (Pointe)">Attaquant (Pointe)</option>
+                            <option value="Ailier Droit">Ailier Droit</option>
+                            <option value="Ailier Gauche">Ailier Gauche</option>
+                            <option value="Milieu">Milieu</option>
+                        </select>
+                    </div>
+                    <div class="grid-inputs">
+                        <div class="input-group"><label>Taille (cm)</label><input type="number" id="in-height" placeholder="175" oninput="syncCV()"></div>
+                        <div class="input-group"><label>Poids (kg)</label><input type="number" id="in-weight" placeholder="68" oninput="syncCV()"></div>
+                        <div class="input-group">
+                            <label>Pied Fort</label>
+                            <select id="in-foot" onchange="syncCV()">
+                                <option value="Droitier">Droitier</option>
+                                <option value="Gaucher">Gaucher</option>
+                                <option value="Ambidextre">Ambidextre</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="glass-card">
+                    <div class="section-header"><h3>📖 Biographie & Ambition</h3></div>
+                    <div class="input-group">
+                        <label>Présentation courte (Bio)</label>
+                        <textarea id="in-bio" oninput="syncCV()" placeholder="Joueur rapide..."></textarea>
+                    </div>
+                </section>
+
+                <section class="glass-card">
+                    <div class="section-header"><h3>📊 Performances</h3></div>
+                    <div class="grid-inputs">
+                        <div class="input-group"><label>Matchs</label><input type="number" id="in-apps" oninput="syncCV()"></div>
+                        <div class="input-group"><label>Buts</label><input type="number" id="in-goals" oninput="syncCV()"></div>
+                        <div class="input-group"><label>Assists</label><input type="number" id="in-assists" oninput="syncCV()"></div>
+                    </div>
+                </section>
+
+                <section class="glass-card">
+                    <div class="section-header"><h3>🏟️ Historique Clubs</h3></div>
+                    <div id="experience-container">
+                        <div class="experience-row">
+                            <input type="text" placeholder="Club" class="exp-club" oninput="syncCV()">
+                            <input type="text" placeholder="Saisons" class="exp-date" oninput="syncCV()">
+                        </div>
+                    </div>
+                    <button class="btn-add-pro" onclick="addExpRow()">+ AJOUTER UN CLUB</button>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePreview()">✕</span>
+            <div id="cv-document" class="cv-a4-paper">
+                <div class="a4-sidebar-accent"></div>
+                <header class="a4-header">
+                    <div class="header-left">
+                        <img src="../../assets/img/user1.jpg" class="cv-user-photo">
+                        <div class="identity-card">
+                            <h2 id="out-name">KOFFI B. SOGLO</h2>
+                            <p class="gold-text" id="out-position">AILIER DROIT | U17 BÉNIN</p>
+                        </div>
+                    </div>
+                    <div class="header-right"><div class="qr-placeholder"><small>VERIFIED</small></div></div>
+                </header>
+                <div class="a4-content-grid">
+                    <aside class="a4-aside">
+                        <h4>MENSURATIONS</h4>
+                        <div class="measure-item"><span>Taille</span> <strong id="out-height">--</strong></div>
+                        <div class="measure-item"><span>Poids</span> <strong id="out-weight">--</strong></div>
+                        <div class="measure-item"><span>Pied</span> <strong id="out-foot">Droitier</strong></div>
+                        <h4 style="margin-top:20px">STATS</h4>
+                        <div class="stat-pill"><span class="val" id="out-goals">0</span><span class="lab">BUTS</span></div>
+                        <div class="stat-pill"><span class="val" id="out-apps">0</span><span class="lab">MATCHS</span></div>
+                    </aside>
+                    <main class="a4-main">
+                        <h4>BIOGRAPHIE</h4>
+                        <p id="out-bio" style="font-size: 0.8rem; line-height: 1.4;">--</p>
+                        <h4>CARRIÈRE</h4>
+                        <ul id="out-experience-list" class="pro-timeline"></ul>
+                    </main>
+                </div>
+                <div class="a4-footer-doc">
+                    <span>ID: 266HU028BIBJ16022026</span>
+                    <span>HUBISOCCER FEDERATION CERTIFIED</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="compliance-badges">
+            <div class="badge-item">Conformité APDP Bénin</div>
+            <div class="badge-item">Règlementation FIFA</div>
+            <div class="badge-item">Double Projet Sport-Études</div>
+        </div>
+        <div class="contact-box">
+            <a href="tel:+2290197208188" class="contact-item">📞 +229 01 97 20 81 88</a>
+            <a href="mailto:contact@hubisoccer.com" class="contact-item">📧 hubisoccer@gmail.com</a>
+        </div>
+        <div class="legal">
+            <p><strong>HubISoccer - The Hub of Inspiration of Soccer</strong></p>
+            <p>RCCM : RB/ABC/24 A 111814 | IFU : 0201910800236</p>
+            <p>&copy; 2026 HubISoccer - Ozawa. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="edit-cv.js"></script>
+</body>
+</html>

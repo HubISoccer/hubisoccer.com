@@ -1,0 +1,304 @@
+/* --- CONFIGURATION GLOBALE HUBISOCCER --- */
+:root {
+    --primary: #2d004d;
+    --gold: #d4af37;
+    --cyan-footer: #00ffff;
+    --bg-body: #f4f7f6;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--bg-body);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    background: var(--primary);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 70px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo-nav { height: 45px; cursor: pointer; }
+
+.lang-picker {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+}
+
+/* --- SIDEBAR MENU (11 liens) --- */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100%;
+    background: white;
+    z-index: 2001;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    overflow-y: auto;
+}
+
+.sidebar-menu.open { left: 0; }
+
+.sidebar-header {
+    background: var(--primary);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-content a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    border-bottom: 1px solid #f0f0f0;
+    transition: 0.2s;
+}
+
+.sidebar-content a:hover, .sidebar-content a.active {
+    background: #f0ebf5;
+    color: var(--primary);
+    border-left: 5px solid var(--gold);
+}
+
+.sidebar-divider { border: 0; border-top: 1px solid #eee; margin: 10px 0; }
+
+/* --- DASHBOARD LAYOUT --- */
+.dashboard-container {
+    padding: 20px;
+    max-width: 1000px; /* Centré et lisible pour l'édition */
+    margin: auto;
+}
+
+.cv-builder-header {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gold-text { color: var(--gold); font-weight: 800; }
+
+/* --- ÉDITION (Editor Panel) --- */
+.editor-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.glass-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    color: var(--primary);
+    border-bottom: 2px solid var(--bg-body);
+    padding-bottom: 10px;
+}
+
+/* FORMULAIRE */
+.input-group { margin-bottom: 20px; }
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #555;
+    text-transform: uppercase;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #edf2f7;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #fdfdfd;
+    transition: 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--gold);
+    outline: none;
+    background: white;
+}
+
+.grid-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+/* --- BOUTONS --- */
+.actions-area { display: flex; gap: 15px; }
+
+.btn-save, .btn-export, .btn-preview-trigger {
+    border: none;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-save { background: var(--primary); color: white; }
+.btn-export { background: var(--gold); color: white; }
+.btn-preview-trigger {
+    background: white;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    width: 100%;
+}
+
+.btn-preview-trigger:hover { background: var(--primary); color: white; }
+
+/* --- MODALE APERÇU (THÈME CLAIR STUDIO) --- */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(240, 242, 245, 0.98); /* Gris très clair, presque blanc */
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+    padding: 40px 0; /* Espace pour ne pas coller aux bords */
+}
+
+.modal-content {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.close-modal {
+    color: var(--primary); /* X en bleu nuit au lieu de blanc */
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+/* --- LE PAPIER A4 (CADRAGE PRÉCIS) --- */
+.a4-wrapper {
+    background: white;
+    width: 210mm;
+    height: 297mm;
+    padding: 15mm;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+    /* Ombre légère et pro */
+    border: 1px solid #ddd;
+    position: relative;
+    transform-origin: top center;
+    /* Ajustement automatique pour les petits écrans */
+    zoom: 0.85;
+}
+
+/* Responsive pour que le A4 ne dépasse pas sur mobile */
+@media (max-width: 800px) {
+    .a4-wrapper {
+        zoom: 0.4;
+    }
+}
+/* --- FOOTER SITE (VERSION ELITE) --- */
+footer {
+    background: var(--primary); /* Ton bleu nuit #2d004d */
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 50px;
+    border-top: 4px solid var(--gold); /* Rappel de l'élégance */
+}
+
+.compliance-badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.badge-item {
+    background: rgba(255, 255, 255, 0.05); 
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+
+/* RESPONSIVE APERÇU MODALE */
+@media (max-width: 350px) {
+    .modal-content { transform: scale(0.1); transform-origin: top center; }
+}
+
+@media (max-width: 190px) {
+    .modal-content { transform: scale(0.2); transform-origin: top center; }
+}
