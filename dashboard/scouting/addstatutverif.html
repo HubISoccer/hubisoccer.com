@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Génération de Licence & Documents | HubISoccer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css"> 
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/addstatut.css">
+</head>
+<body>
+
+    <nav>
+        <img src="../../assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav" onclick="window.location.href='../../index.html'">
+        <div class="nav-right">
+            <select class="lang-picker" id="langSelect">
+                <option value="fr">🇫🇷 Français</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="yo">🇳🇬 Yoruba</option>
+                <option value="fon">🇧🇯 Fon</option>
+                <option value="mina">🇹🇬 Mina</option>
+                <option value="lin">🇨🇬 Lingala</option>
+                <option value="wol">🇸🇳 Wolof</option>
+                <option value="ha">🇳🇬 Hausa</option>
+                <option value="sw">🇰🇪 Swahili</option>
+                <option value="diou">🇨🇮 Dioula</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="pt">🇵🇹 Português</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="ar">🇸🇦 العربية</option>
+                <option value="zh">🇨🇳 中文</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="ru">🇷🇺 Русский</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="hi">🇮🇳 हिन्दी</option>
+                <option value="ko">🇰🇷 한국어</option>
+                <option value="nl">🇳🇱 Nederlands</option>
+                <option value="pl">🇵🇱 Polski</option>
+                <option value="vi">🇻🇳 Tiếng Việt</option>
+            </select>
+            <button class="menu-toggle" id="dashboardMenuTrigger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="sidebar-menu" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu Joueur</h3>
+            <div class="close-btn" id="closeSidebar">✕</div>
+        </div>
+        <div class="sidebar-content">
+            <a href="../main.html">🏠 Mon Dashboard</a>
+            <a href="verification.html" class="active">🛡️ Vérification du Statut</a>
+            <a href="/community/feed.html">👥 Ma Communauté (Feed)</a>
+            <a href="/dashboard/profile/edit-cv.html">📝 Modifier mon CV Pro</a>
+            <a href="/dashboard/profile/certifications.html">🎓 Diplômes & Certifs</a>
+            <a href="tournaments.html">🏆 Suivi Tournoi (Live)</a>
+            <a href="transfers.html">🔄 Historique Transferts</a>
+            <hr class="sidebar-divider">
+            <a href="../media/videos.html">🎥 Mes Vidéos</a>
+            <a href="../finance/revenue.html">💰 Mes Revenus</a>
+            <a href="../community/messages.html">📩 Messages</a>
+            <a href="../support.html">❓ Support</a>
+            <a href="/index.html" class="logout-link">🚪 Déconnexion</a>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="status-box">
+            <span class="status-emoji">⏳</span>
+            <div class="status-texts">
+                <strong>Statut : Profil en cours de vérification</strong><br>
+                <small>Documents analysés par l'équipe HubISoccer.</small>
+            </div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-mini-card"><span id="parrainCount">0</span><p>Parrainages</p></div>
+            <div class="stat-mini-card"><span id="viewCount">124</span><p>Vues Profil</p></div>
+        </div>
+
+        <div class="main-form-grid">
+            <div class="licence-preview-container">
+                <h3>Ma Carte de Licence Officielle</h3>
+                <div class="licence-card" id="licenceCard">
+                    <div class="licence-header">
+                        <img src="../../assets/img/logonavbar.png" class="card-logo">
+                        <div class="card-header-text">OFFICIAL PLAYER LICENCE<br>HUBISOCCER FEDERATION</div>
+                    </div>
+                    <div class="licence-content">
+                        <div class="photo-frame" id="photoFrame">
+                            <img id="preview-img" style="display: none;">
+                            <span id="no-img">PHOTO</span>
+                        </div>
+                        <div class="card-data">
+                            <h2 id="card-name">NOM PRÉNOM</h2>
+                            <p><strong>DOB :</strong> <span id="card-date">--/--/----</span></p>
+                            <p><strong>POSTE :</strong> <span id="card-poste">---</span></p>
+                        </div>
+                    </div>
+                    <div class="licence-footer">266HU028BIBJ16022026</div>
+                </div>
+            </div>
+
+            <div class="forms-container">
+                <section class="form-section">
+                    <h3>Identité (Conforme Acte de Naissance)</h3>
+                    <form id="licenceForm">
+                        <div class="row">
+                            <div class="form-group"><label>Nom</label><input type="text" id="in-nom" oninput="updateCard()"></div>
+                            <div class="form-group"><label>Prénoms</label><input type="text" id="in-prenom" oninput="updateCard()"></div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group"><label>Date de Naissance</label><input type="date" id="in-date" oninput="updateCard()"></div>
+                            <div class="form-group"><label>Lieu</label><input type="text" placeholder="Ville de naissance"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Poste sur le terrain</label>
+                            <select id="in-poste" onchange="updateCard()">
+                                <option value="">Sélectionner...</option>
+                                <option>Gardien</option><option>Défenseur</option><option>Milieu</option><option>Attaquant</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Photo d'identité (Fond blanc)</label>
+                            <input type="file" accept="image/*" onchange="previewFile(this)">
+                        </div>
+                        <button type="button" class="btn-gold" onclick="alert('Demande envoyée !')">Générer ma Licence</button>
+                    </form>
+                </section>
+
+                <section class="form-section dark">
+                    <h3>Vidéos & Documents Officiels</h3>
+                    <div class="form-group">
+                        <label>Lien Vidéo YouTube (Match ou Highlights)</label>
+                        <input type="text" placeholder="https://youtube.com/watch?v=...">
+                    </div>
+                    <div class="file-grid">
+                        <div class="form-group"><label>CV Sportif (PDF)</label><input type="file" accept=".pdf"></div>
+                        <div class="form-group"><label>Pièce d'identité (PDF)</label><input type="file" accept=".pdf"></div>
+                        <div class="form-group"><label>Certificat de scolarité (PDF)</label><input type="file" accept=".pdf"></div>
+                        <div class="form-group"><label>Certificat Médical (PDF)</label><input type="file" accept=".pdf"></div>
+                    </div>
+                    <button type="button" class="btn-black">Mettre à jour mes talents</button>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="compliance-badges">
+            <div class="badge-item">Conformité APDP Bénin</div>
+            <div class="badge-item">Règlementation FIFA</div>
+            <div class="badge-item">Double Projet Sport-Études</div>
+        </div>
+        <div class="contact-box">
+            <a href="tel:+2290197208188" class="contact-item">📞 +229 01 97 20 81 88</a>
+            <a href="mailto:contact@hubisoccer.com" class="contact-item">📧 hubisoccer@gmail.com</a>
+        </div>
+        <div class="legal">
+            <p><strong>HubISoccer - The Hub of Inspiration of Soccer</strong></p>
+            <p>RCCM : RB/ABC/24 A 111814 | IFU : 0201910800236</p>
+            <p>&copy; 2026 HubISoccer - Ozawa. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/dashboard.js"></script>
+    <script src="/assets/js/addstatut.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification de Statut | HubISoccer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css"> 
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/verification.css">
+</head>
+<body>
+
+    <nav>
+        <img src="/assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav" onclick="window.location.href='../../index.html'">
+        <div class="nav-right">
+            <select class="lang-picker" id="langSelect">
+                <option value="fr">🇫🇷 Français</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="yo">🇳🇬 Yoruba</option>
+                <option value="fon">🇧🇯 Fon</option>
+                <option value="mina">🇹🇬 Mina</option>
+                <option value="lin">🇨🇬 Lingala</option>
+                <option value="wol">🇸🇳 Wolof</option>
+                <option value="ha">🇳🇬 Hausa</option>
+                <option value="sw">🇰🇪 Swahili</option>
+                <option value="diou">🇨🇮 Dioula</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="pt">🇵🇹 Português</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="ar">🇸🇦 العربية</option>
+                <option value="zh">🇨🇳 中文</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="ru">🇷🇺 Русский</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="hi">🇮🇳 हिन्दी</option>
+                <option value="ko">🇰🇷 한국어</option>
+                <option value="nl">🇳🇱 Nederlands</option>
+                <option value="pl">🇵🇱 Polski</option>
+                <option value="vi">🇻🇳 Tiếng Việt</option>
+            </select>
+            <button class="menu-toggle" id="dashboardMenuTrigger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="sidebar-menu" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu Joueur</h3>
+            <div class="close-btn" id="closeSidebar">✕</div>
+        </div>
+        <div class="sidebar-content">
+            <a href="../main.html">🏠 Mon Dashboard</a>
+            <a href="verification.html" class="active">🛡️ Vérification du Statut</a>
+            <a href="/community/feed.html">👥 Ma Communauté (Feed)</a>
+            <a href="../profile/edit-cv.html">📝 Modifier mon CV Pro</a>
+            <a href="../profile/certifications.html">🎓 Diplômes & Certifs</a>
+            <a href="tournaments.html">🏆 Suivi Tournoi (Live)</a>
+            <a href="transfers.html">🔄 Historique Transferts</a>
+            <hr class="sidebar-divider">
+            <a href="../media/videos.html">🎥 Mes Vidéos</a>
+            <a href="../finance/revenue.html">💰 Mes Revenus</a>
+            <a href="../community/messages.html">📩 Messages</a>
+            <a href="../support.html">❓ Support</a>
+            <a href="../../index.html" class="logout-link">🚪 Déconnexion</a>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="status-header">
+            <div class="status-info">
+                <h1>Statut : <span class="gold-text">En cours</span></h1>
+                <p>Complétez votre profil pour être visible par les investisseurs européens.</p>
+            </div>
+            <div class="status-score">
+                <div class="score-num">88%</div>
+                <div class="score-label">SCORE DE FIABILITÉ</div>
+            </div>
+        </div>
+
+        <div class="verify-main-content">
+            <div class="steps-section">
+                <div class="step-card valid">
+                    <div class="step-content">
+                        <h3>1. Pièce d'identité <span class="badge validated">Validé ✓</span></h3>
+                        <p>CNI, Passeport ou CIP (Recto/Verso).</p>
+                    </div>
+                    <button class="upload-btn" onclick="location.href='addstatutverif.html'">MODIFIER</button>
+                </div>
+
+                <div class="step-card pending">
+                    <div class="step-content">
+                        <h3>2. Certificat de scolarité <span class="badge waiting">En attente...</span></h3>
+                        <p>Preuve d'inscription pour le volet "Double Projet".</p>
+                    </div>
+                    <button class="upload-btn" onclick="location.href='addstatutverif.html'">RE-TÉLÉVERSER</button>
+                </div>
+
+                <div class="step-card missing">
+                    <div class="step-content">
+                        <h3>3. Certificat Médical <span class="badge error">Manquant !</span></h3>
+                        <p>Aptitude physique à la pratique du football de haut niveau.</p>
+                    </div>
+                    <button class="upload-btn gold-bg" onclick="triggerMedicalUpload()">TÉLÉVERSER</button>
+                    <input type="file" id="medicalUpload" style="display:none;">
+                </div>
+                
+                <div class="step-card missing">
+                    <div class="step-content">
+                        <h3>4. Preuve d'inscription <span class="badge error">Manquante !</span></h3>
+                        <p>L'inscription donne droit à un kit hubisoccer.</p>
+                    </div>
+                    <button class="upload-btn gold-bg" onclick="triggerInscripUpload()">TÉLÉVERSER</button>
+                    <input type="file" id="inscripUpload" style="display:none;">
+                </div>
+            </div>
+
+            <div class="passport-section">
+                <div class="passport-preview">
+                    <div class="passport-header">
+                        <div>
+                            <h2 class="gold-text">PASSEPORT SPORTIF</h2>
+                            <p class="sub-text">HUBISOCCER DIGITAL CARD</p>
+                            <div class="player-info">
+                                <p class="p-name">KOFFI B. SOGLO</p>
+                                <p class="p-id gold-text" id="playerID">266HU028BIBJ16022026</p>
+                            </div>
+                        </div>
+                        <div class="qr-container">
+                            <div class="qr-box" onclick="copyPlayerID()">QR CODE</div>
+                            <span class="scan-me">SCAN ME</span>
+                        </div>
+                    </div>
+                    <div class="passport-footer">
+                        <div class="stat-item"><small>POSTE</small><br>AILIER DROIT</div>
+                        <div class="stat-item"><small>NIVEAU</small><br>ELITE PRO</div>
+                        <div class="stat-item"><small>SÉLECTION</small><br>U17 BÉNIN</div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <footer>
+        <div class="compliance-badges">
+            <div class="badge-item">Conformité APDP Bénin</div>
+            <div class="badge-item">Règlementation FIFA</div>
+            <div class="badge-item">Double Projet Sport-Études</div>
+        </div>
+        <div class="contact-box">
+            <a href="tel:+2290197208188" class="contact-item">📞 +229 01 97 20 81 88</a>
+            <a href="mailto:contact@hubisoccer.com" class="contact-item">📧 hubisoccer@gmail.com</a>
+        </div>
+        <div class="legal">
+            <p><strong>HubISoccer - The Hub of Inspiration of Soccer</strong></p>
+            <p>RCCM : RB/ABC/24 A 111814 | IFU : 0201910800236</p>
+            <p>&copy; 2026 HubISoccer - Ozawa. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/dashboard.js"></script>
+    <script src="/assets/js/verification.js"></script>
+</body>
+</html>
