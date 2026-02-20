@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliation | Hubisoccer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <img src="assets/img/logo.png" alt="Logo Hubisoccer" class="nav-logo">
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="affiliation.html">Affiliation</a></li>
+                <li><a href="examen.html">Examen Final</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-mini">
+        <h1>Programme Ambassadeur</h1>
+        <p>Aidez-nous à détecter les talents et gagnez 10% sur chaque guide vendu.</p>
+    </section>
+
+    <main class="container">
+        <div class="card-affiliate">
+            <h2>Générez votre lien de vente</h2>
+            <p>Entrez un identifiant (votre nom ou pseudo) pour créer votre lien personnalisé.</p>
+            
+            <div class="form-group">
+                <input type="text" id="aff-id" placeholder="Ex: CoachMarius229" class="input-field">
+                <button onclick="createAffiliateLink()" class="btn-gold">GÉNÉRER MON LIEN</button>
+            </div>
+
+            <div id="result-area" class="result-area" style="display: none;">
+                <p>Copiez ce lien et partagez-le sur WhatsApp, Facebook ou TikTok :</p>
+                <div class="link-box">
+                    <span id="final-link"></span>
+                    <button onclick="copyLink()" class="btn-copy">Copier</button>
+                </div>
+                <p class="info-note">💡 Chaque personne qui achète via ce lien vous rapporte 100 FCFA.</p>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>Comment ça marche ?</h3>
+            <ol>
+                <li>Générez votre lien ci-dessus.</li>
+                <li>Partagez-le à vos contacts footballeurs.</li>
+                <li>Dès qu'une vente est validée, nous voyons votre identifiant dans le système.</li>
+                <li>Vous recevez vos gains chaque dimanche par Mobile Money.</li>
+            </ol>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>The Hub of Inspiration of Soccer</h3>
+            <p><strong>RCCM:</strong> RB/ABC/24/A/111814 | <strong>IFU:</strong> 0201910800236</p>
+            <p>📍 Bénin | 📞 +229 01 972 08188</p>
+            <p>✉️ hubisoccer@gmail.com</p>
+                <div class="footer-bottom">
+            &copy; 2026 Hubisoccer. Tous droits réservés.
+        </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        function createAffiliateLink() {
+            const id = document.getElementById('aff-id').value.trim();
+            if (id === "") {
+                alert("Veuillez entrer un identifiant !");
+                return;
+            }
+            // Création du lien basé sur l'URL actuelle
+            const baseUrl = window.location.origin + "/index.html";
+            const fullLink = baseUrl + "?ref=" + encodeURIComponent(id);
+            
+            document.getElementById('final-link').innerText = fullLink;
+            document.getElementById('result-area').style.display = "block";
+        }
+
+        function copyLink() {
+            const linkText = document.getElementById('final-link').innerText;
+            navigator.clipboard.writeText(linkText).then(() => {
+                alert("Lien copié dans le presse-papier !");
+            });
+        }
+    </script>
+</body>
+</html>

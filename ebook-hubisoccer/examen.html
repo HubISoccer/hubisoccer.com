@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Final | Hubisoccer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <img src="assets/img/logo.png" alt="Logo Hubisoccer" class="nav-logo">
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="affiliation.html">Affiliation</a></li>
+                <li><a href="examen.html">Examen Final</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="exam-container">
+        <div class="exam-header">
+            <h1>Examen de Qualification</h1>
+            <p>Validez vos connaissances pour obtenir votre ID Officiel et votre Kit Sportif.</p>
+        </div>
+
+        <form id="quiz-form" class="exam-card">
+            <div class="form-section">
+                <h3>1. Vos Informations (pour votre ID)</h3>
+                <input type="tel" id="user-phone" placeholder="Numéro de téléphone (ex: 0166720266)" required class="input-field">
+                <input type="date" id="user-birth" title="Date de naissance" required class="input-field">
+                <select id="user-country" class="input-field" required>
+                    <option value="">Sélectionnez votre pays</option>
+                    <option value="BJ">Bénin (BJ)</option>
+                    <option value="TG">Togo (TG)</option>
+                    <option value="CI">Côte d'Ivoire (CI)</option>
+                    <option value="SN">Sénégal (SN)</option>
+                </select>
+            </div>
+
+            <div class="form-section">
+                <h3>2. Questions Théoriques</h3>
+                
+                <div class="question">
+                    <p>Un agent vous demande 500.000 FCFA avant de vous trouver un club. Que faites-vous ?</p>
+                    <label><input type="radio" name="q1" value="0"> Je paye immédiatement</label><br>
+                    <label><input type="radio" name="q1" value="1"> Je refuse, c'est une arnaque (Règlement FIFA)</label>
+                </div>
+
+                <div class="question">
+                    <p>Votre entraîneur passe du 4-4-2 au 3-5-2. Quel est l'impact majeur ?</p>
+                    <label><input type="radio" name="q2" value="1"> Renforcement du milieu et piston sur les ailes</label><br>
+                    <label><input type="radio" name="q2" value="0"> On joue avec deux gardiens</label>
+                </div>
+
+                <div class="question">
+                    <p>Peut-on ignorer une douleur persistante pour un match important ?</p>
+                    <label><input type="radio" name="q3" value="0"> Oui, le mental suffit</label><br>
+                    <label><input type="radio" name="q3" value="1"> Non, la santé à long terme est la priorité du pro</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-gold" style="width:100%">VALIDER MON EXAMEN</button>
+        </form>
+
+        <div id="result-display" class="result-card" style="display:none;">
+            <div class="success-icon">🏆</div>
+            <h2>Félicitations !</h2>
+            <p>Vous avez validé l'examen avec succès.</p>
+            <div class="id-box">
+                <span>VOTRE ID HUBISOCCER :</span>
+                <h3 id="generated-id">---</h3>
+            </div>
+            <p class="instruction-final">Capturez cet écran et envoyez-le au +229 01 972 08188 pour réclamer votre Kit Sportif.</p>
+        </div>
+    </main>
+
+     <footer class="footer">
+        <div class="footer-content">
+            <h3>The Hub of Inspiration of Soccer</h3>
+            <p><strong>RCCM:</strong> RB/ABC/24/A/111814 | <strong>IFU:</strong> 0201910800236</p>
+            <p>📍 Bénin | 📞 +229 01 972 08188</p>
+            <p>✉️ hubisoccer@gmail.com</p>
+            <div class="footer-bottom">
+                &copy; 2026 Hubisoccer. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById('quiz-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Calcul du score simple (1 point par bonne réponse)
+            let score = 0;
+            const q1 = document.querySelector('input[name="q1"]:checked')?.value;
+            const q2 = document.querySelector('input[name="q2"]:checked')?.value;
+            const q3 = document.querySelector('input[name="q3"]:checked')?.value;
+
+            if(q1 == "1") score++;
+            if(q2 == "1") score++;
+            if(q3 == "1") score++;
+
+            if(score < 2) {
+                alert("Score insuffisant. Relisez le guide et réessayez !");
+                return;
+            }
+
+            // Récupération des données pour l'ID
+            const phone = document.getElementById('user-phone').value;
+            const birth = document.getElementById('user-birth').value;
+            const country = document.getElementById('user-country').value;
+
+            // Appel de la fonction globale (dans main.js)
+            const finalID = generateHubID(phone, birth, country);
+            
+            // Affichage
+            document.getElementById('quiz-form').style.display = 'none';
+            document.getElementById('generated-id').innerText = finalID;
+            document.getElementById('result-display').style.display = 'block';
+            window.scrollTo(0,0);
+        });
+    </script>
+</body>
+</html>
