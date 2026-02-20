@@ -1,0 +1,211 @@
+/* --- VARIABLES OFFICIELLES HUBISOCCER --- */
+:root {
+    --primary: #4B0082;    /* Violet */
+    --accent: #C5A059;     /* Or */
+    --bg-body: #fdfaf5;    /* Fond clair */
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-muted: #555555;
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+body {
+    background-color: var(--bg-body);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: var(--text-dark);
+}
+
+/* --- NAVIGATION & SIDEBAR --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo-nav { height: 45px; cursor: pointer; }
+
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 300px;
+    height: 100vh;
+    background: var(--primary);
+    z-index: 9999;
+    transition: 0.4s ease;
+    padding: 30px;
+}
+
+.sidebar-menu.active { right: 0; }
+.sidebar-header { color: var(--accent); display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.sidebar-content a { display: block; color: white; text-decoration: none; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.sidebar-content a:hover { color: var(--accent); }
+
+/* --- LAYOUT --- */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 30px;
+}
+
+/* --- CARTE PROFIL (GAUCHE) --- */
+.glass-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.avatar-upload img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--primary); object-fit: cover; }
+.id-copy-box { background: var(--primary); color: white; padding: 10px; border-radius: 8px; margin: 15px 0; cursor: pointer; }
+.mini-btn { width: 100%; text-align: left; padding: 10px; margin-bottom: 8px; border: 1px solid #eee; border-left: 4px solid var(--accent); background: white; cursor: pointer; }
+
+.btn-download-cv { 
+    display: block; background: var(--accent); color: white; 
+    text-decoration: none; padding: 12px; border-radius: 8px; font-weight: 800; margin-top: 15px;
+}
+
+/* --- PANNEAU DROIT & STATS --- */
+.evolution-box { background: var(--primary); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
+.progress-track { height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; margin: 15px 0; }
+.progress-fill { height: 100%; background: var(--accent); border-radius: 10px; }
+
+/* --- SECTION STATS (CORRECTIF) --- */
+.stats-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 0; /* Important : on enlève le padding pour que le bouton remplisse tout */
+    overflow: hidden;
+    border-bottom: 4px solid #C5A059; /* Bordure Or */
+}
+
+.stat-btn {
+    width: 100%;
+    height: 100%;
+    padding: 20px 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.stat-btn:hover {
+    background: #fdfaf5; /* Feedback visuel au clic */
+}
+
+.stat-btn b {
+    font-size: 1.5rem;
+    color: #4B0082; /* Chiffres en Violet */
+    display: block;
+}
+
+.stat-btn small {
+    color: #555555; /* Gris foncé pour être lisible sur fond blanc */
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+
+/* TABS & FORM */
+.tab-nav { display: flex; gap: 10px; margin-bottom: 20px; }
+.tab-nav .tab-btn { flex: 1; padding: 12px; border: 1px solid #ddd; background: white; border-radius: 8px; cursor: pointer; font-weight: bold; }
+.tab-nav .tab-btn.active { background: var(--primary); color: var(--accent); border-color: var(--primary); }
+
+.form-section { background: white; padding: 30px; border-radius: 15px; box-shadow: var(--shadow); }
+.input-group { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.field label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; }
+.field input, .field select, .field textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+
+.btn-save { 
+    margin-top: 20px; padding: 15px 30px; background: white; 
+    border: 2px solid var(--primary); color: var(--primary); 
+    font-weight: 800; border-radius: 8px; cursor: pointer; transition: 0.3s;
+}
+.btn-save:hover { background: var(--primary); color: white; }
+
+/* FOOTER */
+footer { background: #1a1a1a; color: white; padding: 40px 5%; text-align: center; margin-top: 50px; }
+.contact-box { margin: 20px 0; display: flex; justify-content: center; gap: 20px; }
+.contact-item { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 900px) {
+    .dashboard-container { grid-template-columns: 1fr; }
+    .stats-summary { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+
+/* --- STYLE NAVBAR DASHBOARD --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-nav { height: 40px; cursor: pointer; }
+
+.nav-right { display: flex; align-items: center; gap: 15px; }
+
+.lang-picker {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 0.8rem;
+}
+
+/* --- STYLE FOOTER DASHBOARD --- */
+footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 40px 5%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.compliance-badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.badge-item {
+    background: rgba(197, 160, 89, 0.2);
+    border: 1px solid #C5A059;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: #C5A059;
+}
+
+.contact-box { margin: 20px 0; }
+.contact-item { color: #C5A059; text-decoration: none; margin: 0 10px; font-weight: 600; }
+
+.legal p { font-size: 0.8rem; opacity: 0.7; margin: 5px 0; }

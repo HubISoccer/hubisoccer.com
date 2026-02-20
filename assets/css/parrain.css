@@ -1,0 +1,263 @@
+/* --- CONFIGURATION GÉNÉRALE --- */
+:root {
+    --primary-color: #F0F8FF;    /* Alice bleu */
+    --secondary-color: #551B8C;  /* Violette américaine */
+    --accent-gold: #ffcc00;      /* Or / Jaune sportif */
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --text-gray: #ffffff;
+    --font-main: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgb(242, 241, 230);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo-nav {
+    height: 50px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-gold);
+}
+
+.btn-auth {
+    padding: 8px 18px;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+}
+
+.btn-auth.gold {
+    background-color: var(--accent-gold);
+    color: #000;
+    border: none;
+}
+
+/* --- LE BOUTON HAMBURGER (Caché sur PC) --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* --- HEADER (HERO SECTION) --- */
+header {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('/assets/img/Stade Cotonou.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.badge-double-projet {
+    background: var(--accent-gold);
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+header p {
+    max-width: 700px;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+}
+
+.cta-group {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-main {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-filled { background: var(--accent-gold); color: #000; }
+.btn-border { border: 2px solid var(--text-light); color: #fff; }
+
+/* --- SECTIONS --- */
+section {
+    padding: 80px 10%;
+}
+
+h2 {
+    font-size: 2rem;
+    color: darkred;
+    margin-bottom: 40px;
+    border-left: 5px solid var(--accent-gold);
+    padding-left: 15px;
+}
+
+.concept-grid, .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.concept-card, .role-card {
+    background: var(--secondary-color);
+    padding: 30px;
+    border-radius: 10px;
+    transition: 0.3s;
+    border: 1px solid #333;
+    text-decoration: none;
+    color: darkred;
+}
+
+.concept-card:hover, .role-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-5px);
+}
+
+.role-icon { font-size: 2.5rem; margin-bottom: 15px; }
+
+/* --- FOOTER --- */
+footer {
+    background: #050505;
+    padding: 50px 10%;
+    text-align: center;
+    border-top: 1px solid #222;
+    color: white;
+}
+
+.compliance-badges {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.badge-item {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    border: 1px solid #444;
+    padding: 5px 10px;
+    color: #aaa;
+}
+
+.contact-box {
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    color: var(--accent-gold);
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.legal {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* --- RESPONSIVE MOBILE (TABLETTES ET TÉLÉPHONES) --- */
+@media (max-width: 1008px) {
+    h1 { font-size: 2.2rem; }
+
+    .menu-toggle {
+        display: flex; /* On affiche le bouton hamburger */
+    }
+
+    .nav-links {
+        display: none; /* On cache les liens par défaut */
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 5%;
+        background: var(--secondary-color);
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active {
+        display: flex; /* S'affiche quand on clique via JS */
+    }
+
+    .nav-links a {
+        margin: 10px 0;
+        color: white;
+        margin-left: 0;
+    }
+    
+    .cta-group {
+        flex-direction: column;
+    }
+}

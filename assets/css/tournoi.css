@@ -1,0 +1,159 @@
+/* --- VARIABLES HUBISOCCER --- */
+:root {
+    --primary: #551B8C;    /* Violet Royal */
+    --gold: #ffcc00;       /* Or Sportif */
+    --light-bg: #F0F8FF;   /* Alice Blue */
+    --white: #ffffff;
+    --dark: #1a1a1a;
+    --gray: #666666;
+    --radius: 12px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* --- RESET & BASE --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Poppins', sans-serif; 
+    background-color: var(--light-bg); 
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* --- HERO SECTION --- */
+.tournoi-hero {
+    background: linear-gradient(rgba(85, 27, 140, 0.85), rgba(85, 27, 140, 0.85)), 
+                url('../img/stade-hero.jpg') center/cover no-repeat;
+    padding: 100px 20px;
+    text-align: center;
+    color: var(--white);
+}
+
+.tournoi-hero h1 { font-size: 2.8rem; text-transform: uppercase; margin-bottom: 15px; }
+.tournoi-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+/* --- GRID SYSTEM --- */
+.event-container {
+    max-width: 1200px;
+    margin: -60px auto 60px; /* Effet de chevauchement pro */
+    padding: 0 20px;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+}
+
+/* --- MAIN CONTENT (CARD) --- */
+.event-main-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.event-banner {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+.event-content { padding: 40px; }
+
+.event-tag {
+    background: var(--primary);
+    color: var(--gold);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.event-content h2 {
+    margin: 20px 0;
+    font-size: 2.2rem;
+    color: var(--primary);
+}
+
+/* --- SIDEBAR (INFO BOX) --- */
+.tournoi-sidebar {
+    position: sticky;
+    top: 100px; /* Reste visible au scroll */
+    height: fit-content;
+}
+
+.info-box {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-top: 5px solid var(--gold);
+}
+
+.info-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-item:last-child { border-bottom: none; }
+
+.info-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--gray);
+    letter-spacing: 1px;
+}
+
+.info-value {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+/* --- BUTTON & URGENCY --- */
+.btn-inscription-photo {
+    background: var(--gold);
+    color: var(--primary);
+    border: none;
+    width: 100%;
+    padding: 18px;
+    border-radius: var(--radius);
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+}
+
+.btn-inscription-photo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 204, 0, 0.4);
+}
+
+.limit-text {
+    color: #d9534f;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* --- RESPONSIVE MOBILE (Ozawa Optimization) --- */
+@media (max-width: 992px) {
+    .event-grid { grid-template-columns: 1fr; }
+    .tournoi-hero { padding: 60px 20px; }
+    .tournoi-hero h1 { font-size: 1.8rem; }
+    .event-banner { height: 280px; }
+    .event-container { margin-top: -30px; }
+    .tournoi-sidebar { position: static; margin-top: 20px; }
+}
+
+@media (max-width: 480px) {
+    .event-content { padding: 25px; }
+    .event-content h2 { font-size: 1.6rem; }
+}

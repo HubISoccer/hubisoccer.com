@@ -1,0 +1,72 @@
+/* --- STYLE PAGE PROCESSUS --- */
+
+.process-header {
+    text-align: center;
+    padding: 100px 5% 50px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/Stade Porto.png');
+    background-size: cover;
+    color: white;
+}
+
+.process-header h1 {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.process-container {
+    padding: 60px 10%;
+    background-color: var(--primary-color);
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.step-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    background: var(--secondary-color);
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 5px solid var(--accent-gold);
+    transition: 0.3s transform;
+}
+
+.step-card:hover {
+    transform: translateX(10px);
+}
+
+.step-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent-gold);
+    opacity: 0.5;
+    line-height: 1;
+}
+
+.step-content h3 {
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.step-content p {
+    color: white;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .step-card {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .process-header h1 { font-size: 1.8rem; }
+}

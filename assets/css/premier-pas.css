@@ -1,0 +1,220 @@
+/* --- VARIABLES HUBISOCCER --- */
+:root {
+    --primary: #4B0082; /* Indigo Royal */
+    --gold: #C5A059;    /* Or HubISoccer */
+    --gold-light: #E5C78B;
+    --dark: #1A1A1A;
+    --light-bg: #F8F9FA;
+    --white: #FFFFFF;
+    --glass: rgba(255, 255, 255, 0.95);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* --- RESET & BASE --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-bg);
+    margin: 0;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* --- HERO SECTION --- */
+.step-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, #2D004D 100%);
+    color: var(--white);
+    padding: 100px 20px 60px;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.step-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.step-hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* --- BENEFITS CARDS --- */
+.benefits-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: -40px auto 60px;
+    padding: 0 20px;
+}
+
+.benefit-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    border-top: 5px solid var(--gold);
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+}
+
+.benefit-card h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+/* --- REGISTRATION FORM SECTION --- */
+.registration-section {
+    padding: 40px 20px 80px;
+}
+
+.form-container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--glass);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.form-container h2 {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 800;
+    position: relative;
+}
+
+.form-container h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--gold);
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* Groupes de formulaires */
+.section-title {
+    background: #f0f0f7;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 30px 0 20px;
+    border-left: 5px solid var(--gold);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="tel"],
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(75, 0, 130, 0.1);
+}
+
+/* Upload Box Style */
+.file-upload-box {
+    border: 2px dashed var(--gold);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    background: rgba(197, 160, 89, 0.05);
+}
+
+.file-note {
+    font-size: 0.75rem;
+    color: #777;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Checkbox */
+.checkbox-group {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin: 30px 0;
+    background: #fff8eb;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--gold-light);
+}
+
+.checkbox-group label {
+    font-size: 0.85rem;
+    color: #555;
+    cursor: pointer;
+}
+
+/* Button Submit */
+.btn-submit {
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary), #6a11cb);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(75, 0, 130, 0.3);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .step-hero h1 { font-size: 1.8rem; }
+    
+    .form-container {
+        padding: 25px;
+    }
+    
+    div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important; /* Force une colonne sur mobile */
+    }
+}

@@ -1,0 +1,103 @@
+/* --- CONFIGURATION DES COLONNES --- */
+.cert-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+@media (min-width: 1024px) {
+    .cert-layout {
+        grid-template-columns: 1.2fr 0.8fr; /* Ordinateur : Liste à gauche, Formulaire à droite */
+        align-items: start;
+    }
+    .upload-section {
+        position: sticky;
+        top: 100px;
+    }
+}
+
+/* HEADER SECTION */
+.section-header {
+    margin-bottom: 30px;
+}
+.section-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+}
+
+/* CARTES DE DIPLÔMES */
+.cert-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.cert-info { display: flex; align-items: center; gap: 15px; }
+.cert-icon { font-size: 2rem; }
+.cert-details h4 { margin: 0; font-size: 1.1rem; font-weight: 600; }
+.cert-details p { margin: 5px 0 0; font-size: 0.85rem; color: #666; }
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.status-badge.verified { background: #eafaf1; color: #27ae60; }
+.status-badge.pending { background: #fef9e7; color: #f1c40f; }
+
+/* BOITE D'UPLOAD */
+.upload-box {
+    background: #4B0082;
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #C5A059;
+}
+.upload-box h3 { margin-bottom: 20px; color: #C5A059; }
+
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; }
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.form-grid-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.file-drop-area {
+    border: 2px dashed rgba(197, 160, 89, 0.5);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-gold-full {
+    width: 100%;
+    padding: 15px;
+    background: #C5A059;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
