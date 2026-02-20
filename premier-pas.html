@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premier Pas | HubISoccer</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css">
-     <link rel="stylesheet" href="/assets/css/premier-pas.css">
-    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/premier-pas.css">
 </head>
+
 <body>
 
     <nav>
-        <img src="assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav">
+        <a href="index.html" style="text-decoration: none;">
+            <img src="assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav">
+        </a>
         
         <div class="nav-right">
             <select class="lang-picker" id="langSelect">
@@ -42,18 +44,18 @@
                 <option value="vi">🇻🇳 Tiếng Việt</option>
             </select>
 
-            <button class="menu-toggle" id="menuToggle">
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
 
             <div class="nav-links" id="navLinks">
-                <a href="community/feed.html" data-key="nav-hub">Hub Community</a>
+                <a href="Hub-community.html" data-key="nav-hub">Hub Community</a>
                 <a href="premier-pas.html" data-key="nav-pre">Premier-Pas</a>
-                <a href="/scouting/scouting.html" data-key="nav-scout">Scouting</a>
+                <a href="scouting/scouting.html" data-key="nav-scout">Scouting</a>
                 <a href="processus.html" data-key="nav-proc">Processus</a> 
                 <a href="parrain.html" data-key="nav-inv">PARRAIN</a>
-                <a href="auth/login.html" class="btn-auth" data-key="nav-login">Connexion</a>
-                <a href="/signup.html" class="btn-auth gold" data-key="nav-reg">S'inscrire</a>
+                <a href="login.html" class="btn-auth" data-key="nav-login">Connexion</a>
+                <a href="signup.html" class="btn-auth gold" data-key="nav-reg">S'inscrire</a>
             </div>
         </div>
     </nav>
@@ -81,23 +83,23 @@
     <section class="registration-section">
         <div class="form-container">
             <h2>Dossier d'Adhésion (Joueur & Parent)</h2>
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form id="adhesionForm" action="api/adhesion.php" method="POST" enctype="multipart/form-data">
                 
                 <div class="section-title">Informations Personnelles</div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div class="form-group">
-                        <label>Nom complet (tel que sur l'acte)</label>
-                        <input type="text" placeholder="Ex: Jean SOGLO" required>
+                        <label for="fullName">Nom complet (tel que sur l'acte)</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Ex: Jean SOGLO" required>
                     </div>
                     <div class="form-group">
-                        <label>Date de Naissance</label>
-                        <input type="date" required>
+                        <label for="birthDate">Date de Naissance</label>
+                        <input type="date" id="birthDate" name="birthDate" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Poste de Prédilection</label>
-                    <select required>
+                    <label for="position">Poste de Prédilection</label>
+                    <select id="position" name="position" required>
                         <option value="">-- Choisir un poste --</option>
                         <option>Gardien de But</option>
                         <option>Défenseur Central</option>
@@ -110,35 +112,35 @@
 
                 <div class="section-title">Parcours Académique & Métier (Double Projet)</div>
                 <div class="form-group">
-                    <label>Dernier diplôme obtenu ou Formation en cours</label>
-                    <input type="text" placeholder="Ex: BEPC, BAC ou Apprenti Menuisier" required>
+                    <label for="diploma">Dernier diplôme obtenu ou Formation en cours</label>
+                    <input type="text" id="diploma" name="diploma" placeholder="Ex: BEPC, BAC ou Apprenti Menuisier" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Attestation de Scolarité ou Diplôme (Image/PDF)</label>
+                    <label for="diplomaFile">Attestation de Scolarité ou Diplôme (Image/PDF)</label>
                     <div class="file-upload-box">
-                        <input type="file" accept=".jpg,.png,.pdf" required>
+                        <input type="file" id="diplomaFile" name="diplomaFile" accept=".jpg,.jpeg,.png,.pdf" required>
                         <p class="file-note">Document obligatoire pour justifier votre "Double Projet". Sans preuve, l'ID HubISoccer ne peut être créé.</p>
                     </div>
                 </div>
 
                 <div class="section-title">Identité & Justificatifs</div>
                 <div class="form-group">
-                    <label>Pièce d'Identité (CIP, Acte de Naissance ou Carte Scolaire)</label>
+                    <label for="idFile">Pièce d'Identité (CIP, Acte de Naissance ou Carte Scolaire)</label>
                     <div class="file-upload-box">
-                        <input type="file" accept=".jpg,.png,.pdf" required>
+                        <input type="file" id="idFile" name="idFile" accept=".jpg,.jpeg,.png,.pdf" required>
                         <p class="file-note">Une photo claire ou un scan lisible du document d'identité.</p>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Téléphone Contact (Tuteur si mineur)</label>
-                    <input type="tel" placeholder="+229 01 00 00 00 00" required>
+                    <label for="phone">Téléphone Contact (Tuteur si mineur)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+229 01 00 00 00 00" required>
                 </div>
 
                 <div class="checkbox-group">
-                    <input type="checkbox" required>
-                    <label>Je certifie l'exactitude des documents fournis. Je comprends que toute fraude sur l'âge ou sur les diplômes entraînera une exclusion définitive du réseau HubISoccer.</label>
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Je certifie l'exactitude des documents fournis. Je comprends que toute fraude sur l'âge ou sur les diplômes entraînera une exclusion définitive du réseau HubISoccer.</label>
                 </div>
 
                 <button type="submit" class="btn-submit">Valider mon Premier Pas</button>
@@ -153,7 +155,7 @@
             <div class="badge-item">Double Projet Sport-Études</div>
         </div>
         <div class="contact-box">
-            <a href="tel:+2290197208188" class="contact-item">📞 +229 01 97 20 81 88</a>
+            <a href="https://wa.me/22901972081880" class="contact-item">📞 +229 01 97 20 81 88</a>
             <a href="mailto:contact@hubisoccer.com" class="contact-item">📧 hubisoccer@gmail.com</a>
         </div>
         <div class="legal">
@@ -163,16 +165,26 @@
         </div>
     </footer>
 
-    <script src="/assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
     <script>
         function updateLanguage(lang) {
             localStorage.setItem('hubiLang', lang);
         }
-        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+        
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        
         window.onload = () => {
             const savedLang = localStorage.getItem('hubiLang') || 'fr';
             document.getElementById('langSelect').value = savedLang;
+            
+            // Menu toggle event
+            document.getElementById('menuToggle').addEventListener('click', toggleMenu);
+            document.getElementById('langSelect').addEventListener('change', (e) => {
+                updateLanguage(e.target.value);
+            });
         };
     </script>
 </body>
-</html>
+                </html>
