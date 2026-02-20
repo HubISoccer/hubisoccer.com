@@ -106,7 +106,7 @@ header {
     align-items: center;
     text-align: center;
     padding: 0 10%;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('/assets/img/Stade Cotonou.png');
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('assets/img/Stade Cotonou.png');
     background-size: cover;
     background-position: center;
 }
