@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Community | HubISoccer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="feed.css">
+</head>
+<body>
+
+    <nav class="nav-main">
+        <img src="../assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav" onclick="location.href='../index.html'">
+        <div class="nav-right">
+            <select class="lang-picker" id="langSelect">
+                <option value="fr">🇫🇷 Français</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="yo">🇳🇬 Yoruba</option>
+                <option value="fon">🇧🇯 Fon</option>
+                <option value="mina">🇹🇬 Mina</option>
+                <option value="lin">🇨🇬 Lingala</option>
+                <option value="wol">🇸🇳 Wolof</option>
+                <option value="ha">🇳🇬 Hausa</option>
+                <option value="sw">🇰🇪 Swahili</option>
+                <option value="diou">🇨🇮 Dioula</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="pt">🇵🇹 Português</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="ar">🇸🇦 العربية</option>
+                <option value="zh">🇨🇳 中文</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="ru">🇷🇺 Русский</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="hi">🇮🇳 हिन्दी</option>
+                <option value="ko">🇰🇷 한국어</option>
+                <option value="nl">🇳🇱 Nederlands</option>
+                <option value="pl">🇵🇱 Polski</option>
+                <option value="vi">🇻🇳 Tiếng Việt</option>
+            </select>
+            <button class="btn-primary btn" id="dashboardMenuTrigger">☰ MENU</button>
+        </div>
+    </nav>
+
+    <div class="wrap">
+        <aside id="sidebar" class="sidebar-menu">
+            <div style="text-align:right;"><button id="closeSidebar" style="background:none; border:none; font-size:1.5rem; cursor:pointer;">✕</button></div>
+            <nav class="sidebar-content">
+                <a href="/dashboard/main.html" class="active">🏠 Mon Dashboard</a>
+                <a href="/dashboard/scouting/verification.html">🛡️ Vérification du Statut</a>
+                <a href="/community/feed.html">👥 Ma Communauté</a>
+                <a href="/dashboard/profile/edit-cv.html">📝 Mon CV Pro</a>
+                <a href="/dashboard/profile/certifications.html">🎓 Diplômes & Certifs</a>
+                <a href="scouting/transfers.html">🔄 Historique Transferts</a>
+                <a href="scouting/tournaments.html">🏆 Suivi Tournoi (Live)</a>
+                <hr style="margin:15px 0; border:0; border-top:1px solid #eee;">
+                <a href="media/videos.html">🎥 Mes Vidéos</a>
+                <a href="finance/revenue.html">💰 Mes Revenus</a>
+                <a href="community/messages.html">📩 Messages</a>
+                <a href="support.html">❓ Support</a>
+                <a href="/index.html" style="color:red">🚪 Déconnexion</a>
+            </nav>
+        </aside>
+
+        <section class="social-layout">
+            <aside class="left-column">
+                <div class="side-profile-card" id="meCard">
+                    <img src="../assets/img/user1.jpg" alt="Photo Profil de l'utilisateur">
+                    <h3 id="meName">Koffi B. SOGLO</h3>
+                    <p class="handle" id="meHandle">@koffi_elite_229</p>
+
+                    <div class="side-stats">
+                        <div class="stat-item"><b id="followersCount">1.2k</b><span>Followers</span></div>
+                        <div class="stat-item"><b id="followingCount">450</b><span>Suivis</span></div>
+                        <div class="stat-item"><b id="postsCount">12</b><span>Posts</span></div>
+                    </div>
+
+                    <div class="right-actions">
+                        <button class="btn btn-primary" id="viewProfileBtn" style="width: 100%; margin-bottom: 8px;">VOIR MON PROFIL</button>
+                        <button class="btn btn-secondary" id="analyticsBtn" style="width: 100%;">📊 ANALYTIQUES</button>
+                    </div>
+                </div>
+
+                <div class="side-card side-trending">
+                    <div class="trend-title" style="font-weight: 800; margin-bottom: 15px; color: var(--primary-violet);">Tendances du Hub</div>
+                    <div class="trend-list" id="trendList">
+                        <div class="trend-item"><strong>#DetectionElite2026</strong><small>2.5k publications</small></div>
+                        <div class="trend-item"><strong>#PasseportSportif</strong><small>1.8k publications</small></div>
+                        <div class="trend-item"><strong>#FootballBenin</strong><small>980 publications</small></div>
+                        <div class="trend-item"><strong>#OzawaSpirit</strong><small>450 publications</small></div>
+                    </div>
+                    <button class="btn btn-link" id="seeAllTrends" style="color: var(--fb-blue); background: none; border: none; cursor: pointer; padding-top: 10px; font-weight: 600;">VOIR TOUT</button>
+                </div>
+            </aside>
+
+            <main class="feed-main">
+                <div class="publish-box">
+                    <div class="publish-top">
+                        <img src="../assets/img/user1.jpg">
+                        <textarea id="postInput" placeholder="Ozawa, partage tes exploits du jour..."></textarea>
+                    </div>
+                    
+                    <div id="mediaPreview" class="media-preview"></div>
+                    
+                    <div class="composer-row">
+                        <div class="publish-actions">
+                            <input type="file" id="fileInput" accept="image/*,video/*" multiple hidden>
+                            <button class="action-item" id="addPhotoBtn">📷 Vidéos/Photos</button>
+                            <button class="action-item" id="addMatchBtn">🏆 Match</button>
+                            <button class="action-item" id="scheduleBtn">⏰ Prog.</button>
+                            <button class="action-item" id="audienceBtn">👥 Audience</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-secondary" id="previewBtn">APERÇU</button>
+                            <button class="btn btn-primary" id="publishBtn">PUBLIER</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="postsContainer"></div>
+            </main>
+
+            <aside class="right-column">
+                <div class="side-card">
+                    <div class="trend-title" style="margin-bottom: 15px;">Administration      </div>
+                <div class="right-controls">
+                    <button class="btn btn-secondary" id="moderationQueueBtn" style="width:100%; margin-bottom:10px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    🧾 Modération
+                    </button>
+                    <button class="btn btn-primary" id="bulkActionsBtn" style="width:100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                ⚙️ Actions en masse
+                    </button>
+                </div>
+                </div>
+
+                <div class="side-card">
+                    <h4 style="color: var(--primary-violet);">Règles du Hub</h4>
+                    <ul style="font-size:0.85rem; padding-left:15px; margin-top:10px; color: var(--text-muted);">
+                    <li style="margin-bottom: 5px;">Vidéos certifiées uniquement</li>
+                    <li>Respect mutuel exigé    </li>
+                    </ul>
+                </div>
+            </aside>
+        </section>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <header class="modal-header">
+                <h3 id="modalTitle">Titre</h3>
+                <button id="modalClose" style="background:none; border:none; color:white; font-size:1.2rem; cursor:pointer;">✕</button>
+            </header>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer" id="modalFooter" style="padding:15px; text-align:right; border-top:1px solid #eee;"></div>
+        </div>
+    </div>
+
+    <template id="postTemplate">
+        <article class="post-card">
+            <header class="post-header">
+                <div class="user-info">
+                    <img class="user-avatar" src="">
+                    <div>
+                        <strong class="user-name"></strong><br>
+                        <small class="user-sub"></small>
+                    </div>
+                </div>
+                <button class="more-btn" style="background:none; border:none; cursor:pointer; font-size:1.2rem;">•••</button>
+                <div class="post-action-menu" hidden>
+                    <button class="menu-item pin-post" data-action="pin">📌 Épingler</button>
+                    <button class="menu-item edit-post-btn">✏️ Modifier</button>
+                    <button class="menu-item mute-user-btn" data-action="mute">🔕 Masquer</button>
+                    <button class="menu-item delete-post" style="color:red">🗑️ Supprimer</button>
+                    <button class="menu-item block-user-btn" data-action="block">⛔ Bloquer</button>
+                    <button class="menu-item report-post-btn" data-action="report">⚠️ Signaler</button>
+                    <button class="menu-item view-analytics-btn">📊 Analytics</button>
+                </div>
+            </header>
+            <div class="post-content"></div>
+            <div class="post-media" style="margin:10px -20px; background:#000; display:flex; flex-direction:column; align-items:center;"></div>
+            <div class="interaction-grid">
+                <button class="inter-btn like-btn">👍🏾 J'aime (<span class="likes-count">0</span>)</button>
+                <button class="inter-btn dislike-btn">👎🏾 Je n'aime pas (<span class="dislikes-count">0</span>)</button>
+                <button class="inter-btn comment-trigger">💬 Commenter</button>
+                <button class="inter-btn share-btn">🔄 Partager</button>
+            </div>
+            <div class="comments-section" hidden style="margin-top:15px; border-top:1px solid #eee; padding-top:10px;">
+                <div class="existing-comments" style="max-height:300px; overflow-y:auto; font-size:0.9rem;"></div>
+                <div style="display:flex; gap:10px; margin-top:10px;">
+                    <input type="text" class="comment-input" placeholder="Votre commentaire..." style="flex:1; border-radius:15px; border:1px solid #ddd; padding:5px 10px;">
+                    <button class="btn-primary btn post-comment" style="padding:5px 10px;">OK</button>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <footer class="site-footer">
+        <div class="compliance-badges">
+            <div class="badge-item">Conformité APDP Bénin</div>
+            <div class="badge-item">Règlementation FIFA</div>
+            <div class="badge-item">Double Projet Sport-Études</div>
+        </div>
+        <div class="contact-box">
+            <a href="tel:+2290197208188" class="contact-item">📞 +229 01 97 20 81 88</a>
+            <a href="mailto:contact@hubisoccer.com" class="contact-item">📧 hubisoccer@gmail.com</a>
+        </div>
+        <div class="legal">
+            <p><strong>HubISoccer - The Hub of Inspiration of Soccer</strong></p>
+            <p>RCCM : RB/ABC/24 A 111814 | IFU : 0201910800236</p>
+            <p>&copy; 2026 HubISoccer - Ozawa. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="feed.js"></script>
+</body>
+</html>

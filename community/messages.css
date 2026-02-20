@@ -1,0 +1,188 @@
+/* --- VARIABLES --- */
+:root {
+  --primary: #2d004d;
+  --accent: #0084ff;
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --border: #e7e7ee;
+  --muted: #6b6b6b;
+  --shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* --- RESET --- */
+* { box-sizing: border-box; }
+body { 
+    height: 100vh; 
+    margin: 0; 
+    background: var(--bg); 
+    font-family: 'Poppins', sans-serif; 
+    overflow: hidden; 
+}
+
+/* --- NAVBAR --- */
+.nav-main {
+  height: 70px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0 20px; 
+  background: var(--primary); 
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo-nav { height: 40px; cursor: pointer; }
+.lang-picker { padding: 8px; border-radius: 8px; border: none; font-weight: 600; }
+.btn-menu { 
+    background: white; 
+    border: none; 
+    padding: 8px 15px; 
+    border-radius: 8px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    color: var(--primary); 
+}
+
+/* --- LAYOUT --- */
+.container { display: flex; height: calc(100vh - 70px); }
+
+/* --- SIDEBAR (Le menu qui glisse) --- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px; /* Caché à gauche */
+    width: 280px;
+    height: 100%;
+    background: white;
+    z-index: 2000;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.2);
+    transition: 0.3s ease-in-out;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open { left: 0; } /* S'affiche quand on clique */
+
+.sidebar-header { display: flex; justify-content: flex-end; margin-bottom: 20px; }
+.close-btn { 
+    background: #f5f5f5; border: none; font-size: 1.2rem; 
+    width: 35px; height: 35px; border-radius: 50%; cursor: pointer; 
+}
+
+.sidebar-nav { display: flex; flex-direction: column; gap: 8px; }
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.2s;
+}
+.nav-link:hover { background: #f2ecff; color: var(--primary); }
+.nav-link.active { background: var(--primary); color: white; }
+
+/* --- MESSENGER AREA --- */
+.messenger { flex: 1; display: flex; padding: 15px; gap: 15px; overflow: hidden; }
+
+/* Profil à gauche (Masqué sur mobile par le responsive plus bas) */
+.left-col { width: 280px; display: flex; flex-direction: column; gap: 15px; }
+.profile-card, .trends { background: white; border-radius: 15px; padding: 15px; box-shadow: var(--shadow); }
+.profile-img { 
+    width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--primary); 
+    display: block; margin: 0 auto 10px; object-fit: cover; 
+}
+.profile-name { font-size: 1rem; text-align: center; margin: 0; }
+.profile-stats { 
+    display: flex; justify-content: space-between; font-size: 0.8rem; 
+    border-top: 1px solid #eee; margin-top: 10px; padding-top: 10px; 
+}
+
+/* Zone de tchat */
+.messenger-area { flex: 1; display: grid; grid-template-columns: 300px 1fr; gap: 15px; }
+
+.contacts-column, .chat-column { 
+    background: white; border-radius: 15px; box-shadow: var(--shadow); 
+    display: flex; flex-direction: column; overflow: hidden; 
+}
+
+.contacts-header { padding: 15px; border-bottom: 1px solid var(--border); }
+.contacts-header input { 
+    width: 100%; padding: 10px; border-radius: 20px; 
+    border: 1px solid var(--border); background: var(--bg); outline: none;
+}
+
+.contacts-list { flex: 1; overflow-y: auto; list-style: none; padding: 0; }
+.contact-item { 
+    display: flex; align-items: center; padding: 12px; 
+    cursor: pointer; border-bottom: 1px solid #f9f9f9; 
+}
+.contact-item.active { background: #e7f3ff; border-left: 4px solid var(--accent); }
+
+.avatar { width: 45px; height: 45px; margin-right: 10px; position: relative; }
+.avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.status-dot { 
+    position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; 
+    border-radius: 50%; border: 2px solid white; background: #44b700; 
+}
+
+/* Fenêtre de discussion */
+.chat-header { 
+    padding: 12px 15px; border-bottom: 1px solid var(--border); 
+    display: flex; justify-content: space-between; align-items: center; 
+}
+.contact-current { display: flex; align-items: center; gap: 10px; }
+.contact-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+
+.chat-actions .icon-btn { 
+    background: none; border: none; color: var(--primary); 
+    font-size: 1.2rem; margin-left: 15px; cursor: pointer; 
+}
+
+.chat-body { 
+    flex: 1; padding: 15px; overflow-y: auto; 
+    display: flex; flex-direction: column; gap: 10px; background: #fafafa; 
+}
+.msg { max-width: 75%; display: flex; flex-direction: column; }
+.msg.received { align-self: flex-start; }
+.msg.sent { align-self: flex-end; align-items: flex-end; }
+.bubble { padding: 10px 14px; border-radius: 18px; font-size: 0.9rem; }
+.msg.received .bubble { background: #e4e6eb; color: black; border-bottom-left-radius: 4px; }
+.msg.sent .bubble { background: var(--accent); color: white; border-bottom-right-radius: 4px; }
+.meta { font-size: 0.7rem; color: #888; margin-top: 3px; }
+
+/* Zone de saisie */
+.chat-footer { padding: 10px 15px; display: flex; align-items: center; gap: 10px; border-top: 1px solid var(--border); }
+.compose-controls { display: flex; gap: 8px; }
+.compose-controls .icon-btn { 
+    background: #f0f2f5; width: 35px; height: 35px; border-radius: 50%; 
+    border: none; display: flex; align-items: center; justify-content: center; 
+    color: var(--muted); cursor: pointer; 
+}
+.compose-controls .icon-btn:hover { background: var(--primary); color: white; }
+
+#msgInput { 
+    flex: 1; padding: 10px 15px; border-radius: 20px; 
+    border: 1px solid var(--border); background: var(--bg); outline: none; 
+}
+
+.send-btn { 
+    background: var(--accent); color: white; width: 45px; height: 45px; 
+    border-radius: 50%; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 132, 255, 0.3); transition: 0.2s;
+}
+.send-btn:hover { transform: scale(1.1); background: #0073e6; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .left-col { display: none; } /* Cache le profil sur tablette/mobile */
+}
+@media (max-width: 768px) {
+  .contacts-column { display: none; } /* Cache la liste contact sur petit mobile */
+  .messenger-area { grid-template-columns: 1fr; }
+}

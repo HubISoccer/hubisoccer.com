@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Messages | HubISoccer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="/community/messages.css">
+</head>
+<body>
+  <header class="nav-main" role="banner">
+    <div class="nav-left">
+      <img src="../assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav" id="homeBtn" onclick="location.href='../index.html'">
+    </div>
+
+    <div class="nav-right">
+      <select id="langSelect" class="lang-picker">
+        <option value="fr" selected>🇫🇷 Français</option>
+        <option value="en">🇺🇸 English</option>
+        <option value="yo">🇳🇬 Yoruba</option>
+        <option value="fon">🇧🇯 Fon</option>
+        <option value="mina">🇹🇬 Mina</option>
+        <option value="lin">🇨🇬 Lingala</option>
+        <option value="wol">🇸🇳 Wolof</option>
+        <option value="ha">🇳🇬 Hausa</option>
+        <option value="sw">🇰🇪 Swahili</option>
+        <option value="diou">🇨🇮 Dioula</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="de">🇩🇪 Deutsch</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="ar">🇸🇦 العربية</option>
+                <option value="zh">🇨🇳 中文</option>
+                <option value="ja">🇯🇵 日本語</option>
+                <option value="ru">🇷🇺 Русский</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="hi">🇮🇳 हिन्दी</option>
+                <option value="ko">🇰🇷 한국어</option>
+                <option value="nl">🇳🇱 Nederlands</option>
+                <option value="pl">🇵🇱 Polski</option>
+                <option value="vi">🇻🇳 Tiếng Việt</option>
+      </select>
+      <button id="menuToggle" class="btn-menu"><i class="fa-solid fa-bars"></i> MENU</button></div>
+  </header>
+
+  <div class="container">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <button id="closeSidebar" class="close-btn">✕</button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="../dashboard/main.html" class="nav-link">🏠 Mon Dashboard</a>
+        <a href="../dashboard/scouting/verification.html" class="nav-link">🛡️ Verification Statut</a>
+        <a href="/dashboard/profile/edit-cv.html" class="nav-link">📝 Mon CV Pro</a>
+        <a href="/dashboard/profile/certifications.html" class="nav-link">🎓 Diplômes & Certifs</a>
+        <a href="#" class="nav-link">🔄 Historique Transferts</a>
+        <a href="/scouting/tournaments.html" class="nav-link">🏆 Suivi Tournoi (Live)</a>
+        <a href="#" class="nav-link">🎥 Mes Vidéos</a>
+        <a href="feed.html" class="nav-link">👥 Communauté</a>
+        <a href="messages.html" class="nav-link active">📩 Messages</a>
+        <a href="#" class="nav-link">💰 Revenus</a>
+        <hr>
+        <a href="/index.html" class="nav-link" style="color:crimson;">🚪 Déconnexion</a>
+      </nav>
+    </aside>
+
+    <main class="messenger">
+      <aside class="left-col">
+        <section class="profile-card">
+          <img src="/assets/img/user1.jpg" alt="Photo de profil" class="profile-img">
+          <h2 class="profile-name">Koffi B. SOGLO</h2>
+          <p class="profile-handle">@koffi_elite_229</p>
+          <div class="profile-stats">
+            <div><strong>1.2k</strong><span>Followers</span></div>
+            <div><strong>450</strong><span>Suivis</span></div>
+            <div><strong>12</strong><span>Posts</span></div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn-primary">Profil</button>
+            <button class="btn-secondary">📊 Stats</button>
+          </div>
+        </section>
+
+        <section class="trends">
+          <h3>Tendances</h3>
+          <ul class="trend-list">
+            <li><strong>#DetectionElite2026</strong><small>2.5k</small></li>
+            <li><strong>#OzawaSpirit</strong><small>1.8k</small></li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="messenger-area">
+        <div class="contacts-column">
+          <div class="contacts-header">
+            <h3>Discussions</h3>
+            <input id="contactSearch" type="search" placeholder="Rechercher...">
+          </div>
+          <ul id="contactsList" class="contacts-list"></ul>
+        </div>
+
+        <div class="chat-column">
+          <header class="chat-header">
+            <div class="contact-current">
+              <img src="/assets/img/agent-fifa.jpg" alt="" class="contact-avatar" id="headerAvatar">
+              <div>
+                <h4 id="chatWith">Agent FIFA</h4>
+                <small id="chatStatus">En ligne</small>
+              </div>
+            </div>
+            <div class="chat-actions">
+              <button class="icon-btn"><i class="fa-solid fa-phone"></i></button>
+             <button class="icon-btn"><i class="fa-solid fa-video"></i></button>
+              <button class="icon-btn"><i class="fa-solid fa-circle-info"></i></button>
+            </div>
+          </header>
+
+          <div id="chatBody" class="chat-body"></div>
+
+          <footer class="chat-footer">
+            <div class="compose-controls">
+              <button class="icon-btn"><i class="fa-solid fa-plus"></i></button>
+              <button class="icon-btn"><i class="fa-regular fa-image"></i></button>
+            </div>
+            <div class="input-wrap">
+              <input id="msgInput" type="text" placeholder="Aa" autocomplete="off">
+            </div>
+            <button id="sendBtn" class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+          </footer>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/community/messages.js"></script>
+  <div id="sidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1900;"></div>
+
+</body>
+</html>
