@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion | HubISoccer - Communauté Puissante d'Afrique</title>
-    
+    <title>Premier Pas | HubISoccer</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/auth.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/premier-pas.css">
 </head>
 
 <body>
 
     <nav>
-        <img src="/assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav" onclick="window.location.href='/'">
+        <a href="index.html" style="text-decoration: none;">
+            <img src="assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav">
+        </a>
+        
         <div class="nav-right">
             <select class="lang-picker" id="langSelect">
                 <option value="fr">🇫🇷 Français</option>
@@ -24,173 +25,128 @@
                 <option value="mina">🇹🇬 Mina</option>
                 <option value="lin">🇨🇬 Lingala</option>
                 <option value="wol">🇸🇳 Wolof</option>
-                <option value="ha">🇳🇬 Hausa</option>
-                <option value="sw">🇰🇪 Swahili</option>
                 <option value="diou">🇨🇮 Dioula</option>
+                <option value="ha">🇳🇬 Hausa</option>
+                <option value="sw">🇰🇪 Kiswahili</option>
                 <option value="es">🇪🇸 Español</option>
                 <option value="pt">🇵🇹 Português</option>
                 <option value="de">🇩🇪 Deutsch</option>
                 <option value="it">🇮🇹 Italiano</option>
                 <option value="ar">🇸🇦 العربية</option>
                 <option value="zh">🇨🇳 中文</option>
-                <option value="ja">🇯🇵 日本語</option>
                 <option value="ru">🇷🇺 Русский</option>
+                <option value="ja">🇯🇵 日本語</option>
                 <option value="tr">🇹🇷 Türkçe</option>
-                <option value="hi">🇮🇳 हिन्दी</option>
                 <option value="ko">🇰🇷 한국어</option>
+                <option value="hi">🇮🇳 हिन्दी</option>
                 <option value="nl">🇳🇱 Nederlands</option>
                 <option value="pl">🇵🇱 Polski</option>
                 <option value="vi">🇻🇳 Tiếng Việt</option>
             </select>
-            <button class="menu-toggle" id="menuToggle">
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
+
             <div class="nav-links" id="navLinks">
-                <a href="/Hub-community.html">Hub Community</a>
-                <a href="/premier-pas.html" data-key="nav-pre">Premier-Pas</a>
-                <a href="/scouting/scouting.html">Scouting</a>
-                <a href="/processus.html">Processus</a>
-                <a href="/parrain.html">PARRAIN</a>
-                <a href="/login.html" class="btn-auth">Connexion</a>
-                <a href="/signup.html" class="btn-auth gold">S'inscrire</a>
-            </div>
-        </div>
-    </nav>
-    
-    <main class="register-wrapper">
-        <div class="register-card" style="max-width: 500px;">
-            <h2>Bon retour !</h2>
-            <p class="subtitle">Accédez à votre écosystème de football africain.</p>
-
-            <form id="loginForm" method="POST" action="/api/login">
-                <div class="form-grid" style="grid-template-columns: 1fr;">
-                    
-                    <div class="form-group">
-                        <label for="hubId">ID HubISoccer</label>
-                        <input 
-                            type="text" 
-                            id="hubId"
-                            name="hubId"
-                            placeholder="266HU028BIBJ16022026" 
-                            required
-                            autocomplete="off">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="loginPass">Mot de passe</label>
-                        <div style="position: relative;">
-                            <input 
-                                type="password" 
-                                id="loginPass" 
-                                name="password"
-                                placeholder="••••••••" 
-                                required
-                                autocomplete="off">
-                            <span class="toggle-password" onclick="togglePass('loginPass')" style="cursor: pointer;">👁️</span>
-                        </div>
-                    </div>
-
-                    <div style="text-align: right; margin-top: -10px;">
-                        <a href="/forgot-password.html" style="color: var(--accent-gold); font-size: 0.8rem; text-decoration: none; font-weight: 600;">Mot de passe oublié ?</a>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-register">Se connecter</button>
-                
-                <p style="text-align: center; margin-top: 25px; font-size: 0.9rem; color: white;">
-                    Nouveau sur la plateforme ? <br>
-                    <a href="/signup.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 800; font-size: 1rem;">S'inscrire</a>
-                </p>
-            </form>
-        </div>
-    </main>
-
-    <footer>
-        <div class="compliance-badges">
-            <div class="badge-item">Conformité APDP Bénin</div>
-            <div class="badge-item">Règlementation FIFA</div>
-            <div class="badge-item">Double Projet Sport-Études</div>
-        </div>
-        <div class="contact-box">
-            <a href="tel:+2290197208188" class="contact-item">📞 +229 01 97 20 81 88</a>
-            <a href="mailto:contact@hubisoccer.com" class="contact-item">📧 hubisoccer@gmail.com</a>
-        </div>
-        <div class="legal">
-            <p><strong>HubISoccer - The Hub of Inspiration of Soccer</strong></p>
-            <p>RCCM : RB/ABC/24 A 111814 | IFU : 0201910800236</p>
-            <p>&copy; 2026 HubISoccer - Ozawa. Tous droits réservés.</p>
-        </div>
-    </footer>
-
-    <script src="/assets/js/auth.js"></script>
-    <script>
-        function togglePass(fieldId) {
-            const field = document.getElementById(fieldId);
-            if (field.type === 'password') {
-                field.type = 'text';
-            } else {
-                field.type = 'password';
-            }
-        }
-    </script>
-
-</body>
-                                              </html>                <option value="ru">🇷🇺 Русский</option>
-                <option value="tr">🇹🇷 Türkçe</option>
-                <option value="hi">🇮🇳 हिन्दी</option>
-                <option value="ko">🇰🇷 한국어</option>
-                <option value="nl">🇳🇱 Nederlands</option>
-                <option value="pl">🇵🇱 Polski</option>
-                <option value="vi">🇻🇳 Tiếng Việt</option>
-            </select>
-            <button class="menu-toggle" id="menuToggle">
-                <span></span><span></span><span></span>
-            </button>
-            <div class="nav-links" id="navLinks">
-                <a href="/Hub-community.html">Hub Community</a>
+                <a href="Hub-community.html" data-key="nav-hub">Hub Community</a>
                 <a href="premier-pas.html" data-key="nav-pre">Premier-Pas</a>
-                <a href="/scouting/scouting.html">Scouting</a>
-                <a href="../processus.html">Processus</a>
-                <a href="parrain.html">PARRAIN</a>
-                <a href="login.html" class="btn-auth">Connexion</a>
-                <a href="signup.html" class="btn-auth gold">S'inscrire</a>
+                <a href="scouting/scouting.html" data-key="nav-scout">Scouting</a>
+                <a href="processus.html" data-key="nav-proc">Processus</a> 
+                <a href="parrain.html" data-key="nav-inv">PARRAIN</a>
+                <a href="login.html" class="btn-auth" data-key="nav-login">Connexion</a>
+                <a href="signup.html" class="btn-auth gold" data-key="nav-reg">S'inscrire</a>
             </div>
         </div>
     </nav>
-    
-    <main class="register-wrapper">
-        <div class="register-card" style="max-width: 500px;">
-            <h2>Bon retour !</h2>
-            <p class="subtitle">Accédez à votre écosystème de football africain.</p>
 
-            <form action="#">
-                <div class="form-grid" style="grid-template-columns: 1fr;">
-                    
+    <header class="step-hero">
+        <h1 data-key="step-hero-title">Premier Pas vers le Futur</h1>
+        <p>L'adhésion officielle au programme HubISoccer. Nous certifions ton talent uniquement si ton parcours scolaire ou professionnel est prouvé.</p>
+    </header>
+
+    <section class="benefits-container">
+        <div class="benefit-card">
+            <h3>🆔 Identité Numérique</h3>
+            <p>Ton inscription crée ton passeport sportif HubISoccer. Indispensable pour participer aux tournois et détections.</p>
+        </div>
+        <div class="benefit-card">
+            <h3>⚖️ Éthique Sportive</h3>
+            <p>Nous protégeons tes droits. Chaque étape est transparente et respecte les normes juridiques du Bénin.</p>
+        </div>
+        <div class="benefit-card">
+            <h3>📈 Visibilité Mondiale</h3>
+            <p>Une fois validé, ton profil devient accessible aux agents licenciés FIFA et aux investisseurs de la plateforme.</p>
+        </div>
+    </section>
+
+    <section class="registration-section">
+        <div class="form-container">
+            <h2>Dossier d'Adhésion (Joueur & Parent)</h2>
+            <form id="adhesionForm" action="api/adhesion.php" method="POST" enctype="multipart/form-data">
+                
+                <div class="section-title">Informations Personnelles</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                     <div class="form-group">
-                        <label>ID HubISoccer</label>
-                        <input type="ID" placeholder="266HU028BIBJ16022026" required>
+                        <label for="fullName">Nom complet (tel que sur l'acte)</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Ex: Jean SOGLO" required>
                     </div>
-
                     <div class="form-group">
-                        <label>Mot de passe</label>
-                        <input type="password" id="loginPass" placeholder="••••••••" required>
-                        <span class="toggle-password" onclick="togglePass('loginPass')">👁️</span>
-                    </div>
-
-                    <div style="text-align: right; margin-top: -10px;">
-                        <a href="forgot-password.html" style="color: var(--accent-gold); font-size: 0.8rem; text-decoration: none; font-weight: 600;">Mot de passe oublié ?</a>
+                        <label for="birthDate">Date de Naissance</label>
+                        <input type="date" id="birthDate" name="birthDate" required>
                     </div>
                 </div>
 
-                <button type="submit" class="btn-register">Se connecter</button>
-                
-                <p style="text-align: center; margin-top: 25px; font-size: 0.9rem; color: white;">
-                    Nouveau sur la plateforme ? <br>
-                    <a href="signup.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 800; font-size: 1rem;">S'inscrire</a>
-                </p>
+                <div class="form-group">
+                    <label for="position">Poste de Prédilection</label>
+                    <select id="position" name="position" required>
+                        <option value="">-- Choisir un poste --</option>
+                        <option>Gardien de But</option>
+                        <option>Défenseur Central</option>
+                        <option>Latéral</option>
+                        <option>Milieu Défensif</option>
+                        <option>Milieu Offensif</option>
+                        <option>Attaquant / Ailier</option>
+                    </select>
+                </div>
+
+                <div class="section-title">Parcours Académique & Métier (Double Projet)</div>
+                <div class="form-group">
+                    <label for="diploma">Dernier diplôme obtenu ou Formation en cours</label>
+                    <input type="text" id="diploma" name="diploma" placeholder="Ex: BEPC, BAC ou Apprenti Menuisier" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="diplomaFile">Attestation de Scolarité ou Diplôme (Image/PDF)</label>
+                    <div class="file-upload-box">
+                        <input type="file" id="diplomaFile" name="diplomaFile" accept=".jpg,.jpeg,.png,.pdf" required>
+                        <p class="file-note">Document obligatoire pour justifier votre "Double Projet". Sans preuve, l'ID HubISoccer ne peut être créé.</p>
+                    </div>
+                </div>
+
+                <div class="section-title">Identité & Justificatifs</div>
+                <div class="form-group">
+                    <label for="idFile">Pièce d'Identité (CIP, Acte de Naissance ou Carte Scolaire)</label>
+                    <div class="file-upload-box">
+                        <input type="file" id="idFile" name="idFile" accept=".jpg,.jpeg,.png,.pdf" required>
+                        <p class="file-note">Une photo claire ou un scan lisible du document d'identité.</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Téléphone Contact (Tuteur si mineur)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+229 01 00 00 00 00" required>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Je certifie l'exactitude des documents fournis. Je comprends que toute fraude sur l'âge ou sur les diplômes entraînera une exclusion définitive du réseau HubISoccer.</label>
+                </div>
+
+                <button type="submit" class="btn-submit">Valider mon Premier Pas</button>
             </form>
         </div>
-    </main>
+    </section>
 
     <footer>
         <div class="compliance-badges">
@@ -199,7 +155,7 @@
             <div class="badge-item">Double Projet Sport-Études</div>
         </div>
         <div class="contact-box">
-            <a href="tel:+2290197208188" class="contact-item">📞 +229 01 97 20 81 88</a>
+            <a href="https://wa.me/22901972081880" class="contact-item">📞 +229 01 97 20 81 88</a>
             <a href="mailto:contact@hubisoccer.com" class="contact-item">📧 hubisoccer@gmail.com</a>
         </div>
         <div class="legal">
@@ -209,7 +165,26 @@
         </div>
     </footer>
 
-    <script src="/assets/js/auth.js"></script>
-
+    <script src="assets/js/main.js"></script>
+    <script>
+        function updateLanguage(lang) {
+            localStorage.setItem('hubiLang', lang);
+        }
+        
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        
+        window.onload = () => {
+            const savedLang = localStorage.getItem('hubiLang') || 'fr';
+            document.getElementById('langSelect').value = savedLang;
+            
+            // Menu toggle event
+            document.getElementById('menuToggle').addEventListener('click', toggleMenu);
+            document.getElementById('langSelect').addEventListener('change', (e) => {
+                updateLanguage(e.target.value);
+            });
+        };
+    </script>
 </body>
 </html>
