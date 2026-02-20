@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubISoccer Tournament | Détection Directe</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/tournoi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="nav-main">
+        <img src="../assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav" onclick="window.location.href='../index.html'">
+        <div class="nav-right">
+            <select class="lang-picker" id="langSelect" onchange="updateLanguage(this.value)">
+                <option value="fr">🇫🇷 Français</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="yo">🇳🇬 Yoruba</option>
+                <option value="fon">🇧🇯 Fon</option>
+                <option value="mina">🇹🇬 Mina</option>
+                <option value="lin">🇨🇬 Lingala</option>
+                <option value="wol">🇸🇳 Wolof</option>
+                <option value="diou">🇨🇮 Dioula</option>
+                <option value="ha">🇳🇬 Hausa</option>
+                <option value="sw">🇰🇪 Kiswahili</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="pt">🇵🇹 Português</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="ar">🇸🇦 العربية</option>
+            </select>
+            
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="hub-communaute.html" data-key="nav-hub">Hub Communauté</a>
+                <a href="/scouting/scouting.html" data-key="nav-scout">Scouting</a>
+                <a href="processus.html" data-key="nav-proc">Processus</a>
+                <a href="parrain.html" data-key="nav-inv">PARRAIN</a>
+                <a href="connexion.html" class="btn-auth">Connexion</a>
+                <a href="inscription.html" class="btn-auth gold">S'inscrire</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="tournoi-hero">
+        <h1 data-key="tournoi-title">HubISoccer Tournament</h1>
+        <p data-key="tournoi-subtitle">L'arène où naissent les futures légendes du football mondial.</p>
+    </header>
+
+    <main class="event-container">
+        <div class="event-grid">
+            <article class="event-main-card">
+                <img src="../assets/img/Stade Parakou.png" class="event-banner" alt="Tournoi HubISoccer">
+                <div class="event-content">
+                    <span class="event-tag" data-key="next-event">PROCHAIN ÉVÉNEMENT</span>
+                    <h2 data-key="event-name">Édition Spéciale : Détection Cotonou 2026</h2>
+                    <p data-key="event-desc">
+                        Participez au plus grand rassemblement de talents en Afrique de l'Ouest. 
+                        Plus de 50 recruteurs internationaux et agents licenciés FIFA seront présents pour observer 
+                        les talents certifiés HubISoccer. Un tournoi réservé aux joueurs ayant un ID de licence valide.
+                    </p>
+                </div>
+            </article>
+
+            <aside class="tournoi-sidebar">
+                <div class="info-box">
+                    <div class="info-item">
+                        <span class="info-label">DATE</span>
+                        <span class="info-value">15 - 20 Mars 2026</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">LIEU</span>
+                        <span class="info-value">Stade de l'Amitié, Bénin</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">CATÉGORIES</span>
+                        <span class="info-value">U17 & 18-23 ans</span>
+                    </div>
+
+                    <button class="btn-inscription-photo" onclick="window.location.href='premier-pas.html'">
+                        S'INSCRIRE AU TOURNOI
+                    </button>
+
+                    <p class="limit-text">Places limitées aux 500 premiers inscrits.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer-main">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 class="gold-text">HUBISOCCER</h4>
+                <p>La plateforme mondiale de détection et de parrainage des talents footballistique.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="gold-text">CONTACT</h4>
+                <p>📍 Siège : Abomey-Calavi, Bénin</p>
+                <p>📞 +229 01 97 20 81 88</p>
+                <p>📧 contact@hubisoccer.com</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="gold-text">LÉGAL</h4>
+                <p>RCCM : RB/ABC/24 A 111814</p>
+                <p>IFU : 0201910800236</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 HubISoccer - Ozawa. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script src="../assets/js/tournoi.js"></script>
+</body>
+</html>
