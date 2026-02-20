@@ -1,0 +1,254 @@
+/* --- CONFIGURATION HUBISOCCER ELITE --- */
+:root {
+    --primary: #2d004d;
+    --gold: #d4af37;
+    --bg: #f8f9fa;
+    --white: #ffffff;
+    --black: #1a1a1a;
+    --red-live: #ff0000;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--black);
+}
+
+/* --- NAVIGATION --- */
+.nav-main {
+    background: var(--primary);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-nav { height: 40px; cursor: pointer; }
+
+.lang-picker {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- SIDEBAR --- */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: var(--white);
+    box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+    z-index: 2000;
+    transition: 0.3s ease;
+}
+
+.sidebar-menu.open { left: 0; }
+
+.sidebar-content a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sidebar-content a.active {
+    background: #f4f0f8;
+    color: var(--primary);
+    border-left: 4px solid var(--gold);
+}
+
+/* --- LIVE LAYOUT --- */
+.live-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1600px;
+    margin: auto;
+    min-height: calc(100vh - 150px);
+}
+
+main { flex: 3; } /* La vidéo prend 75% de l'espace */
+
+/* ZONE VIDÉO */
+.video-main {
+    background: #000;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.video-placeholder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.live-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--red-live);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.live-info {
+    margin-top: 20px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.live-info h2 { margin-top: 0; color: var(--primary); }
+
+.btn-gold-scout {
+    background: var(--gold);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-dark-scout {
+    background: var(--black);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- CHAT SECTION --- */
+.live-chat {
+    flex: 1; /* Le chat prend 25% */
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    height: 700px;
+    position: sticky;
+    top: 90px;
+}
+
+.chat-header {
+    padding: 15px;
+    background: var(--primary);
+    color: white;
+    font-weight: 800;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+}
+
+.msg {
+    margin-bottom: 12px;
+    padding: 10px;
+    background: #f1f3f5;
+    border-radius: 8px;
+    line-height: 1.4;
+}
+
+.chat-input {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#sendBtn {
+    background: var(--gold);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* --- FOOTER (Version Claire demandée) --- */
+.site-footer {
+    background: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    margin-top: 40px;
+}
+
+.compliance-badges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.badge-item {
+    background: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.75rem;
+    border: 1px solid #eee;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1100px) {
+    .live-container { flex-direction: column; }
+    .live-chat { height: 400px; position: static; }
+}

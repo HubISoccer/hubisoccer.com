@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scouting Mondial | HubISoccer</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/scouting.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="nav-main">
+        <img src="../assets/img/logonavbar.png" alt="HubISoccer" class="logo-nav" onclick="window.location.href='../index.html'">
+        <div class="nav-right">
+            <select class="lang-picker" id="langSelect">
+                <option value="fr">🇫🇷 Français</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="fon">🇧🇯 Fon</option>
+                </select>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="hub-communaute.html" data-key="nav-hub">Hub Communauté</a>
+                <a href="/scouting/scouting.html" data-key="nav-scout">Scouting</a>
+                <a href="processus.html" data-key="nav-proc">Processus</a>
+                <a href="/parrain.html" data-key="nav-inv">PARRAIN</a>
+                <a href="connexion.html" class="btn-auth">Connexion</a>
+                <a href="inscription.html" class="btn-auth gold">S'inscrire</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="search-hero">
+        <h1 data-key="title">Base de Données Mondiale HubISoccer</h1>
+        <p data-key="subtitle">10 000 talents détectés à travers les 5 continents.</p>
+        
+        <div class="filter-box">
+            <select id="contSelect">
+                <option value="all" data-key="opt-cont">Tous les Continents</option>
+                <option value="Afrique">Afrique</option>
+                <option value="Europe">Europe</option>
+            </select>
+            <select id="catSelect">
+                <option value="all" data-key="opt-cat">Toutes Catégories</option>
+                <option value="mineur">U17 (Mineurs)</option>
+                <option value="adulte">18+ (Adultes)</option>
+            </select>
+            <input type="text" id="countrySearch" placeholder="Pays (ex: Bénin, Brésil...)">
+            <button class="btn-search" id="btnSearch" data-key="btn-search">Rechercher</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="section-header">
+            <h2 id="displayTitle" data-key="recent-talents">Talents Récents</h2>
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="player-grid" id="playerGrid">
+            </div>
+    </main>
+
+    <footer class="footer-main">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 class="gold-text">HUBISOCCER</h4>
+                <p>La plateforme mondiale de détection et d'investissement dans le talent footballistique.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="gold-text">CONTACT</h4>
+                <p>📍 Abomey-Calavi, Bénin | 📞 +229 01 97 20 81 88</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="gold-text">LÉGAL</h4>
+                <p>RCCM : RB/ABC/24 A 111814 | IFU : 0201910800236</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/scouting.js"></script>
+</body>
+</html>
